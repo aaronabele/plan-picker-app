@@ -4,7 +4,6 @@
       class="btn"
       v-for="plan in plans"
       :key="plan"
-      :checked="plan.selected"
       @click="select(plan)"
       :class="[this.selectedPlans.includes(plan.label) ? 'btn-selected' : '']"
     >
@@ -19,20 +18,22 @@ export default {
     return {
       selectedPlans: [],
       plans: [
-        { id: 1, label: "The Single", selected: false },
-        { id: 2, label: "The Curious", selected: false },
-        { id: 3, label: "The Addict", selected: false },
+        { id: 1, label: "The Single" },
+        { id: 2, label: "The Curious" },
+        { id: 3, label: "The Addict" },
       ],
     };
   },
   methods: {
     select(plan) {
-      plan.selected = !plan.selected;
       this.selectedPlans.push(plan.label);
       if (this.selectedPlans.length === 2) {
         return this.selectedPlans.splice(-2, 1);
       }
     },
+  },
+  props: {
+    header: String,
   },
 };
 </script>

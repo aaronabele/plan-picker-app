@@ -18,16 +18,14 @@ export default {
   components: {
     PlanButton,
   },
-  data() {
-    return {
-      plans: ["The Single", "The Curious", "The Addict"],
-      selected: false,
-    };
-  },
 };
 </script>
 
 <style scoped>
+.plan-picker-header {
+  margin: 2rem;
+  text-align: center;
+}
 .btn-position {
   display: flex;
   justify-content: center;
